@@ -1,0 +1,22 @@
+{
+  "name": "aierc20",
+  "version": "1.0.0",
+  "description": "ERC20 smart contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AiFreeWay/AIERC20.git"
+  },
+  "author": "AifreeWay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AiFreeWay/AIERC20/issues"
+  },
+  "homepage": "https://github.com/AiFreeWay/AIERC20#readme",
+  "dependencies": {
+    "truffle": "^5.0.43"
+  }
+}
