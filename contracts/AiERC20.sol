@@ -24,7 +24,7 @@ contract AiERC20 {
     function emmission(uint64 value) public {
         require(msg.sender == _owner);
         _totalSupply += value;
-        _balanceOf[msg.sender] += value;
+        _balanceOf[_owner] += value;
     }
 
     function name() public view returns (string memory) {
