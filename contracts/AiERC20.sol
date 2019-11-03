@@ -4,11 +4,11 @@ pragma solidity ^0.5.2;
 contract AiERC20 {
 
     address private _owner;
-    string internal _name;
-    string internal _symbol;
-    uint64 internal _totalSupply;
-    mapping (address => uint) internal _balanceOf;
-    mapping (address => mapping (address => uint)) internal _allowances;
+    string private _name;
+    string private _symbol;
+    uint64 private _totalSupply;
+    mapping (address => uint) private _balanceOf;
+    mapping (address => mapping (address => uint)) private _allowances;
 
     event Approval(address indexed _owner, address indexed _spender, uint _value);
     event Transfer(address indexed _from, address indexed _to, uint _value);

@@ -1,4 +1,3 @@
-//import "truffle/DeployedAddresses.sol";
 const DeployedAddresses = require("truffle")["DeployedAddresses"];
 const AiERC20 = artifacts.require("AiERC20");
 
@@ -17,7 +16,7 @@ contract("AIERC20", accounts => {
   });
 
   it("transferFrom 1000 without approve", () => {
-    let contract2;
+    let contract;
     AiERC20.deployed()
       .then(instance => {
         contract = instance;
