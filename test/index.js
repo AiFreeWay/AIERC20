@@ -1,6 +1,5 @@
 const DeployedAddresses = require("truffle")["DeployedAddresses"];
 const EmissionErc20 = artifacts.require("EmissionErc20Contract");
-const Web3 = require('web3');
 
 contract("EmissionContract", async accounts => {
   // TRANSFER
