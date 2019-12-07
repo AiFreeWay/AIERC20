@@ -1,8 +1,8 @@
 const ConvertLib = artifacts.require("ConvertLib");
-const AiERC20 = artifacts.require("AiERC20");
+const EmissionErc20 = artifacts.require("EmissionErc20Contract");
 
 module.exports = function(deployer) {
   deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, AiERC20);
-  deployer.deploy(AiERC20);
+  deployer.link(ConvertLib, EmissionErc20);
+  deployer.deploy(EmissionErc20);
 };
