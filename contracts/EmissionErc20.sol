@@ -38,7 +38,7 @@ contract EmissionErc20Contract {
     emit Transfer(owner, to, value);
   }
 
-  function transferFrom(address from, address to, uint value) public returns (bool) {
+  function transferFrom(address from, address to, uint value) public {
     require(allowances[from][to] >= value, "Not enought tokens");
     balances[from] -= value;
     balances[to] += value;
