@@ -31,6 +31,12 @@ contract EmissionErc20Contract {
     balances[owner] += value;
   }
 
+  function seizure(uint64 value) external onlyOwner {
+    require(balances[owner] >= value, "Too many tokens");
+    balances[owner] -= value;
+    total_supply -= value;
+  }
+
   function transfer(address to, uint value) external onlyOwner {
     require(value <= balances[owner], "Not enought tokens");
     balances[owner] -= value;

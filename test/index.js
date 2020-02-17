@@ -121,4 +121,29 @@ contract("EmissionContract", async accounts => {
     .then(() => contract.balanceOf.call(accounts[0]))
     .then(res => assert.equal(res, 2100000))
   });
+
+  //SEIZURE
+
+  it("Seizure failure - invalid account", async () => {
+    let contract = await EmissionErc20.deployed();
+    let error;
+    await contract.seizure(1000, { from: accounts[1]})
+      .catch(err => { error = err });
+    assert.ok(error.toString().indexOf("Need owner permission") > 0);
+  });
+
+  it("Seizure failure - Too many tokens", async () => {
+    let contract = await EmissionErc20.deployed();
+    let error;
+    await contract.seizure(2200000, { from: accounts[0]})
+      .catch(err => { error = err });
+    assert.ok(error.toString().indexOf("Too many tokens") > 0);  
+  });
+
+  it("Seizure success", async () => {
+    let contract = await EmissionErc20.deployed();
+    await contract.seizure(100000)
+    .then(() => contract.balanceOf.call(accounts[0]))
+    .then(res => assert.equal(res, 2000000))
+  });
 });
