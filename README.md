@@ -10,4 +10,4 @@ You need install <b>Nodejs</b> before
 git clone https://github.com/AiFreeWay/AIERC20.git
 cd AIERC20
 npm install
-truffle test
+truffle test test/index.js

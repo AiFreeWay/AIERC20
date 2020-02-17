@@ -26,19 +26,19 @@ contract EmissionErc20Contract {
     balances[owner] = total_supply;
   }
 
-  function emmission(uint64 value) public onlyOwner {
+  function emmission(uint64 value) external onlyOwner {
     total_supply += value;
     balances[owner] += value;
   }
 
-  function transfer(address to, uint value) public onlyOwner {
+  function transfer(address to, uint value) external onlyOwner {
     require(value <= balances[owner], "Not enought tokens");
     balances[owner] -= value;
     balances[to] += value;
     emit Transfer(owner, to, value);
   }
 
-  function transferFrom(address from, address to, uint value) public {
+  function transferFrom(address from, address to, uint value) external {
     require(allowances[from][to] >= value, "Not enought tokens");
     balances[from] -= value;
     balances[to] += value;
@@ -46,7 +46,7 @@ contract EmissionErc20Contract {
     emit Transfer(from, to, value);
   }
 
-  function approve(address spender, uint value) public {
+  function approve(address spender, uint value) external {
     require(balances[msg.sender] >= value, "Not enought tokens");
     require(msg.sender != spender, "Sender and spender equal");
     allowances[msg.sender][spender] = value;
